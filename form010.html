@@ -6,26 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário</title>
 </head>
-<body> 
+<body>
     <h1>Exemplo de Formulário</h1>
     <form action="cadastro.php" method="get">
-        <p>
-           <label for="icor">Cor</label>
-           <input type="color" name="cor" id="icor" value="#00ff00">
+       <p>
+        <label for="iano">Em que ano você nasceu?</label>
+        <input type="number" name="ano" id="iano" min="1900" max="2023"
+        oninput="calcIdade()">
         </p>
         <p>
-            <label for="inível">Nível de Satisfação</label>
-            <input type="range" name="nível" id="inível">
+            <label for="iidade">Sua idade é:</label>
+            <output id="iidade">0</output>
         </p>
-        <p>
-            <label for="ifoto">Foto de Perfil</label>,
-            <input type="file" name="foto" id="ifoto">
-        </p>
-      
+
         <p>
             <input type="submit" value="Enviar">
             <input type="reset" value="Limpar">
         </p>
+
+        <script>
+            function calcIdade() {
+                let atual = new Date().getFullYear()
+                iidade.innerHTML = Number(atual) - Number (iano.value)
+            }
+        </script>
     
 </body>
 </html>
